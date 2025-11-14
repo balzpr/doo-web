@@ -1,0 +1,402 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Prevent horizontal overflow */
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Animasi Coin Burning */
+@keyframes burn {
+  0%,
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1) rotate(180deg);
+    opacity: 0.8;
+    filter: brightness(1.5) blur(1px);
+  }
+}
+
+/* Animasi Proof Handshake */
+@keyframes handshake {
+  0%,
+  100% {
+    transform: rotate(0deg) translateX(0);
+  }
+  25% {
+    transform: rotate(-10deg) translateX(-5px);
+  }
+  75% {
+    transform: rotate(10deg) translateX(5px);
+  }
+}
+
+/* Animasi Floating */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Animasi Glow */
+@keyframes glow {
+  from {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+  }
+  to {
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.8);
+  }
+}
+
+.burning-coin {
+  animation: burn 2s ease-in-out infinite;
+}
+
+.proof-handshake {
+  animation: handshake 3s ease-in-out infinite;
+}
+
+.floating {
+  animation: float 6s ease-in-out infinite;
+}
+
+.glow-effect {
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+/* Mobile-first responsive design */
+@media (max-width: 640px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* Adjust animations for mobile */
+  .burning-coin {
+    animation-duration: 3s; /* Slower on mobile for performance */
+  }
+
+  .proof-handshake {
+    animation-duration: 4s; /* Slower on mobile */
+  }
+}
+
+/* Touch device improvements */
+@media (hover: none) and (pointer: coarse) {
+  .hover-scale:hover {
+    transform: none; /* Disable hover effects on touch devices */
+  }
+
+  button:active {
+    transform: scale(0.98); /* Add touch feedback */
+  }
+}
+
+/* Dark mode text colors fix */
+.dark .text-gray-900 {
+  color: #f9fafb;
+}
+
+.dark .text-gray-800 {
+  color: #f3f4f6;
+}
+
+.dark .text-gray-700 {
+  color: #e5e7eb;
+}
+
+.dark .text-gray-600 {
+  color: #d1d5db;
+}
+
+/* Ensure all text is visible in dark mode */
+.dark {
+  color: #f9fafb;
+}
+
+/* Modal Animations */
+@keyframes modalEnter {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes modalExit {
+  from {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.9) translateY(-20px);
+  }
+}
+
+@keyframes overlayEnter {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes overlayExit {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.modal-enter {
+  animation: modalEnter 0.2s ease-out forwards;
+}
+
+.modal-exit {
+  animation: modalExit 0.15s ease-in forwards;
+}
+
+.overlay-enter {
+  animation: overlayEnter 0.2s ease-out forwards;
+}
+
+.overlay-exit {
+  animation: overlayExit 0.15s ease-in forwards;
+}
+
+/* Ensure modal overlay covers entire screen */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 50;
+}
+
+/* FAQ Accordion Animations */
+.faq-enter {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.faq-enter-active {
+  max-height: 200px;
+  opacity: 1;
+  transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+}
+
+.faq-exit {
+  max-height: 200px;
+  opacity: 1;
+}
+
+.faq-exit-active {
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.3s ease-in, opacity 0.3s ease-in;
+}
+
+/* Page Transition Animations */
+.page-enter {
+  opacity: 0;
+  transform: translateX(-20px) scale(0.98);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.page-exit {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+}
+
+.page-exit-active {
+  opacity: 0;
+  transform: translateX(20px) scale(1.02);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Slide animations */
+.slide-in-right {
+  animation: slideInRight 0.4s ease-out;
+}
+
+.slide-in-left {
+  animation: slideInLeft 0.4s ease-out;
+}
+
+.slide-out-right {
+  animation: slideOutRight 0.3s ease-in;
+}
+
+.slide-out-left {
+  animation: slideOutLeft 0.3s ease-in;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOutRight {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+}
+
+@keyframes slideOutLeft {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+}
+
+/* Fade animations */
+.fade-in {
+  animation: fadeIn 0.4s ease-out;
+}
+
+.fade-out {
+  animation: fadeOut 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(1.05);
+  }
+}
+
+/* Custom select styles for dark mode */
+select {
+  background-color: white;
+  color: #374151;
+}
+
+.dark select {
+  background-color: #1f2937;
+  color: #d1d5db;
+  border-color: #4b5563;
+}
+
+.dark select option {
+  background-color: #1f2937;
+  color: #d1d5db;
+}
+
+/* Custom select appearance */
+select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 0.5rem center;
+  background-repeat: no-repeat;
+  background-size: 1.5em 1.5em;
+  padding-right: 2.5rem;
+}
+
+.dark select {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%239ca3af' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+}
+/* Remove all custom background images and use Tailwind only */
+input[type="date"] {
+  background-color: white;
+  color: #374151;
+}
+
+.dark input[type="date"] {
+  background-color: #1f2937;
+  color: #d1d5db;
+  border-color: #4b5563;
+}
+
+/* Let browser handle the calendar icon naturally */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(0);
+  cursor: pointer;
+}
+
+.dark input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  opacity: 0.8;
+}
+
+/* For Firefox - let it use default styling */
+input[type="date"] {
+  -moz-appearance: none;
+}
+
+.dark input[type="date"] {
+  -moz-appearance: none;
+}
