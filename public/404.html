@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Redirecting...</title>
+    <script>
+      // Client-side routing untuk GitHub Pages
+      const path = window.location.pathname;
+
+      // Jika path tidak ada /doo-web/ tapi ada di subpath
+      if (!path.includes("/doo-web/") && path !== "/doo-web/") {
+        // Redirect ke base URL dengan path yang benar
+        const newPath = "/doo-web" + path;
+        window.history.replaceState(null, null, newPath);
+        window.location.reload();
+      } else {
+        // Jika sudah di base URL, redirect ke index
+        sessionStorage.redirect = path;
+        window.location.href = "/doo-web/";
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Redirecting...</h1>
+    <p>If not redirected, <a href="/doo-web/">click here</a>.</p>
+  </body>
+</html>

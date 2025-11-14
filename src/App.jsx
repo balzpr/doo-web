@@ -21,6 +21,7 @@ import Onboarding from "./pages/Onboarding";
 import AuthPage from "./pages/AuthPage";
 import "./index.css";
 
+// Base path untuk GitHub Pages
 function App() {
   return (
     <ThemeProvider>
@@ -33,6 +34,7 @@ function App() {
           <Route path="/verification" element={<Verification />} />
           <Route path="/proof-history" element={<ProofHistory />} />
           <Route path="/onboarding" element={<Onboarding />} />
+
           {/* Dashboard Routes */}
           <Route path="/dashboard" element={<Dashboard />}>
             <Route index element={<Navigate to="trade" replace />} />
@@ -46,9 +48,9 @@ function App() {
             <Route path="upgrade-plan" element={<UpgradePlan />} />
             <Route path="notifications" element={<Notifications />} />
             <Route path="documentation" element={<Documentation />} />
-            {/* Tambahkan route ini di dalam dashboard */}
             <Route path="documentation/article/:articleId" element={<FullArticle />} />
           </Route>
+
           {/* 404 Fallback */}
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
