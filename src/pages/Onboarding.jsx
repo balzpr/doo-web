@@ -23,7 +23,7 @@ const Onboarding = () => {
   } = useOnboarding();
 
   return (
-    <div className={`min-h-screen transition-colors duration-300 ${isDark ? "bg-dark-primary" : "bg-gray-50"}`}>
+    <div className={`min-h-screen transition-colors duration-300 ${isDark ? "bg-black" : "bg-gray-50"}`}>
       <OnboardingHeader />
 
       <div className="max-w-4xl mx-auto py-8 px-4">
@@ -37,20 +37,20 @@ const Onboarding = () => {
                   className={`flex flex-col items-center transition-all duration-300 ${index <= currentStepIndex ? "text-blue-600 dark:text-blue-400 scale-110" : "text-gray-400"}`}>
                   <div
                     className={`w-12 h-12 rounded-full flex items-center justify-center border-2 mb-2 ${
-                      index <= currentStepIndex ? "bg-blue-500 border-blue-500 text-white" : "border-gray-300 dark:border-gray-600 text-gray-400"
+                      index <= currentStepIndex ? "bg-blue-600 border-blue-600 text-white" : "border-gray-300 dark:border-gray-600 text-gray-400"
                     }`}>
                     {step.icon}
                   </div>
                   <span className="text-xs font-medium whitespace-nowrap">{step.title.split(" ")[0]}</span>
                 </button>
-                {index < steps.length - 1 && <div className={`flex-1 h-1 mx-2 transition-all duration-300 ${index < currentStepIndex ? "bg-blue-500" : "bg-gray-300 dark:bg-gray-600"}`} />}
+                {index < steps.length - 1 && <div className={`flex-1 h-1 mx-2 transition-all duration-300 ${index < currentStepIndex ? "bg-blue-600" : "bg-gray-300 dark:bg-gray-600"}`} />}
               </React.Fragment>
             ))}
           </div>
 
-          {/* Progress Bar */}
+          {/* Progress Bar - No Gradient */}
           <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-            <div className="bg-gradient-to-r from-blue-500 to-purple-500 h-2 rounded-full transition-all duration-500 ease-out" style={{width: `${getStepProgress()}%`}}></div>
+            <div className="bg-blue-600 h-2 rounded-full transition-all duration-500 ease-out" style={{width: `${getStepProgress()}%`}}></div>
           </div>
         </div>
 

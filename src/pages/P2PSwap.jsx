@@ -11,7 +11,7 @@ import Step4Success from "../components/P2PSwap/Step4Success";
 const P2PSwap = () => {
   const {isDark} = useTheme();
   const {activeStep, setActiveStep, swapData, setSwapData, proofs, isGenerating, handleGenerateProof, resetSwap, isFormValid} = useP2PSwap();
-    
+
   const handleUpdateSwapData = (updates) => {
     setSwapData((prev) => ({...prev, ...updates}));
   };
@@ -32,7 +32,7 @@ const P2PSwap = () => {
   };
 
   return (
-    <div className={`min-h-screen transition-colors duration-300 ${isDark ? "bg-dark-primary" : "bg-gray-50"}`}>
+    <div className={`min-h-screen transition-colors duration-300 ${isDark ? "bg-black" : "bg-gray-50"}`}>
       <SwapHeader />
 
       <div className="max-w-md mx-auto py-6 px-4">

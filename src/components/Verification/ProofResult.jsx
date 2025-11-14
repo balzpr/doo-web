@@ -3,8 +3,8 @@ import React from "react";
 const ProofResult = ({verificationStep, proofData, selectedType, onReset}) => {
   if (verificationStep === "generating") {
     return (
-      <div className="bg-white dark:bg-dark-secondary rounded-2xl p-8 shadow-lg border border-gray-200 dark:border-gray-700 text-center">
-        <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full animate-spin mx-auto mb-6"></div>
+      <div className="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg border border-gray-200 dark:border-gray-800 text-center">
+        <div className="w-16 h-16 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto mb-6"></div>
         <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Generating Zero-Knowledge Proof</h3>
         <p className="text-gray-600 dark:text-gray-400">Creating cryptographic proof without exposing your data...</p>
       </div>
@@ -13,8 +13,8 @@ const ProofResult = ({verificationStep, proofData, selectedType, onReset}) => {
 
   if (verificationStep === "verifying") {
     return (
-      <div className="bg-white dark:bg-dark-secondary rounded-2xl p-8 shadow-lg border border-gray-200 dark:border-gray-700 text-center">
-        <div className="w-16 h-16 border-4 border-green-500 border-t-transparent rounded-full animate-spin mx-auto mb-6"></div>
+      <div className="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg border border-gray-200 dark:border-gray-800 text-center">
+        <div className="w-16 h-16 border-4 border-green-600 border-t-transparent rounded-full animate-spin mx-auto mb-6"></div>
         <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Verifying Proof</h3>
         <p className="text-gray-600 dark:text-gray-400">Validating the zero-knowledge proof on the blockchain...</p>
       </div>
@@ -23,20 +23,20 @@ const ProofResult = ({verificationStep, proofData, selectedType, onReset}) => {
 
   if (verificationStep === "success" && proofData) {
     return (
-      <div className="bg-white dark:bg-dark-secondary rounded-2xl p-8 shadow-lg border border-green-200 dark:border-green-800 text-center">
+      <div className="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg border border-green-200 dark:border-green-800 text-center">
         {/* Success Icon */}
         <div className="text-6xl mb-4 animate-bounce">✅</div>
 
         {/* Main Title */}
         <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Verification Successful!</h2>
 
-        {/* Tagline */}
-        <div className="bg-gradient-to-r from-green-500 to-emerald-600 text-white py-2 px-4 rounded-full inline-block mb-6">
+        {/* Tagline - No Gradient */}
+        <div className="bg-green-600 text-white py-2 px-4 rounded-full inline-block mb-6">
           <span className="font-bold">Verified by math, not middlemen.</span>
         </div>
 
         {/* Proof Details */}
-        <div className="bg-gray-50 dark:bg-dark-primary rounded-xl p-6 mb-6 text-left">
+        <div className="bg-gray-50 dark:bg-black rounded-xl p-6 mb-6 text-left">
           <div className="space-y-4">
             <div>
               <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Proof Statement</h4>
@@ -72,10 +72,8 @@ const ProofResult = ({verificationStep, proofData, selectedType, onReset}) => {
           </ul>
         </div>
 
-        {/* Action Button */}
-        <button
-          onClick={onReset}
-          className="w-full bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white py-4 rounded-xl font-bold text-lg transition-all duration-200 transform hover:scale-105">
+        {/* Action Button - No Gradient */}
+        <button onClick={onReset} className="w-full bg-green-600 hover:bg-green-700 text-white py-4 rounded-xl font-bold text-lg transition-all duration-200">
           Verify Something Else
         </button>
       </div>

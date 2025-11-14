@@ -113,7 +113,7 @@ const AuthPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-200">
+    <div className="min-h-screen bg-gray-50 dark:bg-black transition-colors duration-200">
       {/* Header */}
       <div className="flex justify-between items-center p-6">
         <Logo />
@@ -123,13 +123,13 @@ const AuthPage = () => {
       <div className="flex items-center justify-center px-4 py-8">
         <div className="w-full max-w-md">
           {/* Tabs */}
-          <div className="flex bg-white dark:bg-gray-800 rounded-t-xl border-b border-gray-200 dark:border-gray-700 overflow-hidden">
+          <div className="flex bg-white dark:bg-gray-900 rounded-t-xl border-b border-gray-200 dark:border-gray-800 overflow-hidden">
             <button
               onClick={() => setActiveTab("login")}
               className={`flex-1 py-4 px-6 text-center font-medium transition-all duration-200 ${
                 activeTab === "login"
                   ? "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20 border-b-2 border-blue-600 dark:border-blue-400"
-                  : "text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/50"
+                  : "text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800"
               }`}>
               Login
             </button>
@@ -138,14 +138,14 @@ const AuthPage = () => {
               className={`flex-1 py-4 px-6 text-center font-medium transition-all duration-200 ${
                 activeTab === "register"
                   ? "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20 border-b-2 border-blue-600 dark:border-blue-400"
-                  : "text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/50"
+                  : "text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800"
               }`}>
               Register
             </button>
           </div>
 
           {/* Form */}
-          <div className="bg-white dark:bg-gray-800 rounded-b-xl shadow-lg p-6 border border-gray-200 dark:border-gray-700">
+          <div className="bg-white dark:bg-gray-900 rounded-b-xl shadow-lg p-6 border border-gray-200 dark:border-gray-800">
             <form onSubmit={handleSubmit} className="space-y-4">
               {activeTab === "register" && (
                 <div>
@@ -158,8 +158,8 @@ const AuthPage = () => {
                     name="fullName"
                     value={formData.fullName}
                     onChange={handleInputChange}
-                    className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white dark:border-gray-600 transition-colors duration-200 ${
-                      errors.fullName ? "border-red-500 dark:border-red-400" : "border-gray-300 dark:border-gray-600"
+                    className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 dark:bg-black dark:text-white dark:border-gray-700 transition-colors duration-200 ${
+                      errors.fullName ? "border-red-500 dark:border-red-400" : "border-gray-300 dark:border-gray-700"
                     }`}
                     placeholder="Enter your full name"
                   />
@@ -177,8 +177,8 @@ const AuthPage = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleInputChange}
-                  className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white dark:border-gray-600 transition-colors duration-200 ${
-                    errors.email ? "border-red-500 dark:border-red-400" : "border-gray-300 dark:border-gray-600"
+                  className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 dark:bg-black dark:text-white dark:border-gray-700 transition-colors duration-200 ${
+                    errors.email ? "border-red-500 dark:border-red-400" : "border-gray-300 dark:border-gray-700"
                   }`}
                   placeholder="you@example.com"
                 />
@@ -195,8 +195,8 @@ const AuthPage = () => {
                   name="password"
                   value={formData.password}
                   onChange={handleInputChange}
-                  className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white dark:border-gray-600 transition-colors duration-200 ${
-                    errors.password ? "border-red-500 dark:border-red-400" : "border-gray-300 dark:border-gray-600"
+                  className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 dark:bg-black dark:text-white dark:border-gray-700 transition-colors duration-200 ${
+                    errors.password ? "border-red-500 dark:border-red-400" : "border-gray-300 dark:border-gray-700"
                   }`}
                   placeholder="Enter your password"
                 />
@@ -214,8 +214,8 @@ const AuthPage = () => {
                     name="confirmPassword"
                     value={formData.confirmPassword}
                     onChange={handleInputChange}
-                    className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white dark:border-gray-600 transition-colors duration-200 ${
-                      errors.confirmPassword ? "border-red-500 dark:border-red-400" : "border-gray-300 dark:border-gray-600"
+                    className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 dark:bg-black dark:text-white dark:border-gray-700 transition-colors duration-200 ${
+                      errors.confirmPassword ? "border-red-500 dark:border-red-400" : "border-gray-300 dark:border-gray-700"
                     }`}
                     placeholder="Confirm your password"
                   />
@@ -226,7 +226,7 @@ const AuthPage = () => {
               <button
                 type="submit"
                 disabled={isLoading}
-                className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white py-3 px-4 rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 disabled:cursor-not-allowed flex items-center justify-center">
+                className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white py-3 px-4 rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 dark:focus:ring-offset-gray-900 disabled:cursor-not-allowed flex items-center justify-center">
                 {isLoading ? (
                   <>
                     <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -269,7 +269,7 @@ const AuthPage = () => {
       <Modal isOpen={isModalOpen} onClose={handleModalClose} title={modalContent.title} size="sm">
         <div className="p-6">
           <div className="text-center">
-            <div className="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100 dark:bg-green-900 mb-4">
+            <div className="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100 dark:bg-green-900/20 mb-4">
               <svg className="h-6 w-6 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
               </svg>
@@ -277,7 +277,7 @@ const AuthPage = () => {
             <p className="text-gray-600 dark:text-gray-300 mb-6">{modalContent.message}</p>
             <button
               onClick={handleModalClose}
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+              className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2">
               Continue to Dashboard
             </button>
           </div>

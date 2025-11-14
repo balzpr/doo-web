@@ -32,7 +32,7 @@ const OnboardingStep = ({step, isActive, onInstallExtension, onConnectWallet, on
         {step.id !== "welcome" && step.id !== "proving" && (
           <button
             onClick={onPrev}
-            className="px-6 py-3 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-200 font-medium">
+            className="px-6 py-3 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors duration-200 font-medium">
             Back
           </button>
         )}
@@ -47,7 +47,7 @@ const OnboardingStep = ({step, isActive, onInstallExtension, onConnectWallet, on
             className={`px-6 py-3 rounded-xl font-medium transition-all duration-200 ${
               (step.id === "install" && !isExtensionInstalled) || (step.id === "connect" && !isWalletConnected)
                 ? "bg-gray-300 dark:bg-gray-700 text-gray-500 cursor-not-allowed"
-                : "bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg hover:shadow-xl transform hover:scale-105"
+                : "bg-blue-600 hover:bg-blue-700 text-white shadow-lg hover:shadow-xl transform hover:scale-105"
             }`}>
             {step.id === "welcome" ? "Get Started" : "Continue"}
           </button>
@@ -60,7 +60,8 @@ const OnboardingStep = ({step, isActive, onInstallExtension, onConnectWallet, on
 // Sub-components for each step
 const WelcomeStep = ({onNext}) => (
   <div className="text-center space-y-6">
-    <div className="w-24 h-24 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto">
+    {/* Icon dengan solid color */}
+    <div className="w-24 h-24 bg-blue-600 rounded-full flex items-center justify-center mx-auto">
       <span className="text-white text-4xl">👋</span>
     </div>
 
@@ -77,19 +78,13 @@ const WelcomeStep = ({onNext}) => (
         {icon: "⚡", title: "Instant Verification", desc: "No more waiting periods"},
         {icon: "🌐", title: "Universal Access", desc: "Works across platforms"},
       ].map((feature, index) => (
-        <div key={index} className="bg-white dark:bg-dark-secondary p-4 rounded-xl border border-gray-200 dark:border-gray-700">
+        <div key={index} className="bg-white dark:bg-gray-900 p-4 rounded-xl border border-gray-200 dark:border-gray-800">
           <div className="text-2xl mb-2">{feature.icon}</div>
           <div className="font-semibold text-gray-900 dark:text-white mb-1">{feature.title}</div>
           <div className="text-sm text-gray-600 dark:text-gray-400">{feature.desc}</div>
         </div>
       ))}
     </div>
-
-    <button
-      onClick={onNext}
-      className="w-full max-w-md mx-auto py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-xl font-bold text-lg transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105">
-      Get Started
-    </button>
   </div>
 );
 
@@ -114,19 +109,19 @@ const InstallStep = ({onInstall, isInstalled, selectedBrowser, onNext}) => {
             onClick={() => onInstall(browser.id)}
             className={`p-4 rounded-xl border-2 transition-all duration-300 ${
               selectedBrowser === browser.id
-                ? "border-blue-500 bg-blue-50 dark:bg-blue-900/20 scale-105"
-                : "border-gray-200 dark:border-gray-700 bg-white dark:bg-dark-secondary hover:border-gray-300 dark:hover:border-gray-600"
+                ? "border-blue-600 bg-blue-50 dark:bg-blue-900/20 scale-105"
+                : "border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 hover:border-gray-300 dark:hover:border-gray-600"
             } ${isInstalled && selectedBrowser !== browser.id ? "opacity-50" : "hover:scale-105"}`}>
             <div className="text-3xl mb-2">{browser.icon}</div>
             <div className="font-semibold text-gray-900 dark:text-white">{browser.name}</div>
             <div className="text-xs text-gray-500 dark:text-gray-400 mt-1">{browser.users} users</div>
-            {selectedBrowser === browser.id && <div className="text-green-500 text-sm mt-1">✓ Selected</div>}
+            {selectedBrowser === browser.id && <div className="text-green-600 text-sm mt-1">✓ Selected</div>}
           </button>
         ))}
       </div>
 
       {isInstalled ? (
-        <div className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-700 rounded-xl p-4">
+        <div className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-xl p-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2 text-green-600 dark:text-green-400">
               <span className="text-lg">✅</span>
@@ -138,21 +133,12 @@ const InstallStep = ({onInstall, isInstalled, selectedBrowser, onNext}) => {
           </div>
         </div>
       ) : (
-        <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-700 rounded-xl p-4 text-center">
+        <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-4 text-center">
           <p className="text-blue-600 dark:text-blue-400 text-sm">Select your browser above to install the MrProve extension</p>
         </div>
       )}
 
       {/* Manual Continue Button */}
-      {isInstalled && (
-        <div className="text-center">
-          <button
-            onClick={onNext}
-            className="px-8 py-3 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white rounded-xl font-semibold transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105">
-            Continue to Wallet Connection
-          </button>
-        </div>
-      )}
     </div>
   );
 };
@@ -175,8 +161,8 @@ const ConnectStep = ({onConnect, isConnected, selectedWallet, onNext}) => {
             onClick={() => onConnect(wallet.id)}
             className={`p-6 rounded-xl border-2 transition-all duration-300 text-left ${
               selectedWallet === wallet.id
-                ? "border-blue-500 bg-blue-50 dark:bg-blue-900/20 scale-105"
-                : "border-gray-200 dark:border-gray-700 bg-white dark:bg-dark-secondary hover:border-gray-300 dark:hover:border-gray-600"
+                ? "border-blue-600 bg-blue-50 dark:bg-blue-900/20 scale-105"
+                : "border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 hover:border-gray-300 dark:hover:border-gray-600"
             } ${isConnected && selectedWallet !== wallet.id ? "opacity-50" : "hover:scale-105"}`}>
             <div className="flex items-center space-x-4">
               <div className="text-3xl">{wallet.icon}</div>
@@ -184,7 +170,7 @@ const ConnectStep = ({onConnect, isConnected, selectedWallet, onNext}) => {
                 <div className="font-semibold text-gray-900 dark:text-white text-lg">{wallet.name}</div>
                 <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">{wallet.description}</div>
                 <div className="text-xs text-gray-500 dark:text-gray-400 mt-2">{wallet.users} users</div>
-                {selectedWallet === wallet.id && <div className="text-green-500 text-sm mt-2">✓ Connected</div>}
+                {selectedWallet === wallet.id && <div className="text-green-600 text-sm mt-2">✓ Connected</div>}
               </div>
             </div>
           </button>
@@ -192,7 +178,7 @@ const ConnectStep = ({onConnect, isConnected, selectedWallet, onNext}) => {
       </div>
 
       {isConnected ? (
-        <div className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-700 rounded-xl p-4">
+        <div className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-xl p-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2 text-green-600 dark:text-green-400">
               <span className="text-lg">✅</span>
@@ -204,19 +190,8 @@ const ConnectStep = ({onConnect, isConnected, selectedWallet, onNext}) => {
           </div>
         </div>
       ) : (
-        <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-700 rounded-xl p-4 text-center">
+        <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-4 text-center">
           <p className="text-blue-600 dark:text-blue-400 text-sm">Select your wallet above to connect to MrProve</p>
-        </div>
-      )}
-
-      {/* Manual Continue Button */}
-      {isConnected && (
-        <div className="text-center">
-          <button
-            onClick={onNext}
-            className="px-8 py-3 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white rounded-xl font-semibold transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105">
-            Complete Setup
-          </button>
         </div>
       )}
     </div>
@@ -228,7 +203,8 @@ const ProvingStep = () => {
 
   return (
     <div className="text-center space-y-8">
-      <div className="w-24 h-24 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto">
+      {/* Icon dengan solid color */}
+      <div className="w-24 h-24 bg-green-600 rounded-full flex items-center justify-center mx-auto">
         <span className="text-white text-4xl">🎉</span>
       </div>
 
@@ -245,7 +221,7 @@ const ProvingStep = () => {
           {icon: "✅", title: "Verifications", desc: "Prove facts without revealing data"},
           {icon: "💰", title: "Payments", desc: "Private and secure transactions"},
         ].map((action, index) => (
-          <div key={index} className="bg-white dark:bg-dark-secondary p-6 rounded-xl border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all duration-300">
+          <div key={index} className="bg-white dark:bg-gray-900 p-6 rounded-xl border border-gray-200 dark:border-gray-800 hover:shadow-lg transition-all duration-300">
             <div className="text-3xl mb-3">{action.icon}</div>
             <div className="font-semibold text-gray-900 dark:text-white text-lg mb-2">{action.title}</div>
             <div className="text-sm text-gray-600 dark:text-gray-400">{action.desc}</div>
@@ -256,12 +232,12 @@ const ProvingStep = () => {
       <div className="flex space-x-4 justify-center">
         <button
           onClick={() => navigate("/p2p-swap")}
-          className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-xl font-bold text-lg transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105">
+          className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold text-lg transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105">
           Start Proving
         </button>
         <button
           onClick={() => navigate("/")}
-          className="px-8 py-4 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-200 font-bold text-lg">
+          className="px-8 py-4 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors duration-200 font-bold text-lg">
           Explore Features
         </button>
       </div>

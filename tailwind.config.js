@@ -5,7 +5,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        avenir: ["-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "sans-serif"],
+        inter: ["Inter", "system-ui", "sans-serif"],
       },
       animation: {
         burn: "burn 2s ease-in-out infinite",
@@ -15,13 +15,13 @@ export default {
       },
       colors: {
         dark: {
-          primary: "#0f172a",
-          secondary: "#1e293b",
-          accent: "#334155",
+          primary: "#000000",
+          secondary: "#0a0a0a",
+          accent: "#1a1a1a",
           text: {
-            primary: "#f8fafc",
-            secondary: "#cbd5e1",
-            muted: "#94a3b8",
+            primary: "#ffffff",
+            secondary: "#e5e5e5",
+            muted: "#a3a3a3",
           },
         },
       },

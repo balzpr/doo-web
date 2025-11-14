@@ -1,19 +1,13 @@
+// components/Logo.jsx
 import React from "react";
 
 const Logo = () => {
   return (
-    <div className="flex items-center space-x-3">
-      {/* Logo shape - unique dan tidak digunakan di tempat lain */}
-      <div className="relative">
-        <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl rotate-45 flex items-center justify-center shadow-lg">
-          <div className="w-6 h-6 bg-white rounded-xl rotate-45"></div>
-        </div>
+    <div className="flex items-center space-x-2">
+      <div className="w-8 h-8 bg-[#FF6B35] rounded-full flex items-center justify-center">
+        <span className="text-white font-bold text-sm">M</span>
       </div>
-
-      {/* Logo text - Avenir Next Bold style */}
-      <div className="font-bold text-2xl tracking-tight">
-        <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">AuthApp</span>
-      </div>
+      <span className="font-bold text-gray-900 dark:text-white text-xl">MrProve</span>
     </div>
   );
 };

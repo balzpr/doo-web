@@ -31,16 +31,16 @@ const ProofCard = ({proof}) => {
     }
   };
 
-  const getTypeGradient = (color) => {
+  const getTypeColor = (color) => {
     switch (color) {
       case "blue":
-        return "from-blue-500 to-cyan-500";
+        return "bg-blue-600";
       case "green":
-        return "from-green-500 to-emerald-500";
+        return "bg-green-600";
       case "purple":
-        return "from-purple-500 to-pink-500";
+        return "bg-purple-600";
       default:
-        return "from-gray-500 to-gray-600";
+        return "bg-gray-600";
     }
   };
 
@@ -96,13 +96,13 @@ const ProofCard = ({proof}) => {
 
     return (
       <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-        <div className="bg-white dark:bg-dark-secondary rounded-2xl p-6 w-full max-w-md shadow-2xl border border-gray-200 dark:border-gray-700">
+        <div className="bg-white dark:bg-gray-900 rounded-2xl p-6 w-full max-w-md shadow-2xl border border-gray-200 dark:border-gray-800">
           {/* Header */}
           <div className="flex items-center justify-between mb-6">
             <h3 className="text-lg font-bold text-gray-900 dark:text-white">Share Proof</h3>
             <button
               onClick={() => setShowShareModal(false)}
-              className="p-2 rounded-lg text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200">
+              className="p-2 rounded-lg text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200">
               ✕
             </button>
           </div>
@@ -110,7 +110,7 @@ const ProofCard = ({proof}) => {
           {/* Proof Info */}
           <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-4 mb-4">
             <div className="flex items-center space-x-3 mb-3">
-              <div className={`w-8 h-8 bg-gradient-to-r ${getTypeGradient(type.color)} rounded-full flex items-center justify-center`}>
+              <div className={`w-8 h-8 ${getTypeColor(type.color)} rounded-full flex items-center justify-center`}>
                 <span className="text-white text-sm">{type.icon}</span>
               </div>
               <div>
@@ -132,11 +132,11 @@ const ProofCard = ({proof}) => {
                 type="text"
                 value={proof.proofId}
                 readOnly
-                className="flex-1 px-3 py-2 bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white text-sm font-mono"
+                className="flex-1 px-3 py-2 bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg text-gray-900 dark:text-white text-sm font-mono"
               />
               <button
                 onClick={() => copyToClipboard(proof.proofId, "Proof ID")}
-                className="px-4 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors duration-200 text-sm font-medium">
+                className="px-4 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors duration-200 text-sm font-medium">
                 Copy
               </button>
             </div>
@@ -178,7 +178,7 @@ const ProofCard = ({proof}) => {
             </div>
           </div>
 
-          {/* Share via Native Share API */}
+          {/* Share via Native Share API - No Gradient */}
           {navigator.share && (
             <button
               onClick={async () => {
@@ -193,7 +193,7 @@ const ProofCard = ({proof}) => {
                 }
                 setShowShareModal(false);
               }}
-              className="w-full mt-4 py-3 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white rounded-xl font-semibold transition-all duration-200 transform hover:scale-105">
+              className="w-full mt-4 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-semibold transition-all duration-200">
               Share via Device
             </button>
           )}
@@ -204,11 +204,11 @@ const ProofCard = ({proof}) => {
 
   return (
     <>
-      <div className="bg-white dark:bg-dark-secondary rounded-2xl p-6 shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300">
+      <div className="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-lg border border-gray-200 dark:border-gray-800 hover:shadow-xl transition-all duration-300">
         {/* Header */}
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center space-x-3">
-            <div className={`w-10 h-10 bg-gradient-to-r ${getTypeGradient(type.color)} rounded-full flex items-center justify-center`}>
+            <div className={`w-10 h-10 ${getTypeColor(type.color)} rounded-full flex items-center justify-center`}>
               <span className="text-white text-lg">{type.icon}</span>
             </div>
             <div>
@@ -248,7 +248,7 @@ const ProofCard = ({proof}) => {
         </div>
 
         {/* Actions */}
-        <div className="flex space-x-3 mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
+        <div className="flex space-x-3 mt-4 pt-4 border-t border-gray-200 dark:border-gray-800">
           <button className="flex-1 text-center py-2 bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 rounded-lg hover:bg-blue-100 dark:hover:bg-blue-900/30 transition-colors duration-200 text-sm font-medium">
             View Details
           </button>

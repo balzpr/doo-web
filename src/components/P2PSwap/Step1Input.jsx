@@ -21,9 +21,9 @@ const Step1Input = ({swapData, onUpdate, onNext, isFormValid}) => {
   return (
     <div className="space-y-6">
       {/* Buyer Card */}
-      <div className="bg-white dark:bg-dark-secondary rounded-2xl p-6 shadow-lg border border-gray-200 dark:border-gray-700">
+      <div className="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-lg border border-gray-200 dark:border-gray-800">
         <div className="flex items-center space-x-3 mb-4">
-          <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-600 rounded-full flex items-center justify-center">
+          <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center">
             <span className="text-white text-xl">👤</span>
           </div>
           <div>
@@ -47,15 +47,15 @@ const Step1Input = ({swapData, onUpdate, onNext, isFormValid}) => {
 
       {/* Swap Arrow */}
       <div className="flex justify-center">
-        <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center transform rotate-90 lg:rotate-0">
+        <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center transform rotate-90 lg:rotate-0">
           <span className="text-white text-xl">🔄</span>
         </div>
       </div>
 
       {/* Seller Card */}
-      <div className="bg-white dark:bg-dark-secondary rounded-2xl p-6 shadow-lg border border-gray-200 dark:border-gray-700">
+      <div className="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-lg border border-gray-200 dark:border-gray-800">
         <div className="flex items-center space-x-3 mb-4">
-          <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-indigo-600 rounded-full flex items-center justify-center">
+          <div className="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center">
             <span className="text-white text-xl">🏪</span>
           </div>
           <div>
@@ -76,9 +76,7 @@ const Step1Input = ({swapData, onUpdate, onNext, isFormValid}) => {
         onClick={onNext}
         disabled={!isFormValid}
         className={`w-full py-4 rounded-xl font-bold text-lg transition-all duration-200 ${
-          !isFormValid
-            ? "bg-gray-300 dark:bg-gray-700 text-gray-500 cursor-not-allowed"
-            : "bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg hover:shadow-xl transform hover:scale-105"
+          !isFormValid ? "bg-gray-300 dark:bg-gray-700 text-gray-500 cursor-not-allowed" : "bg-blue-600 hover:bg-blue-700 text-white shadow-lg hover:shadow-xl"
         }`}>
         Continue to Confirm
       </button>
@@ -97,7 +95,7 @@ const CurrencyInput = ({label, value, onValueChange, currency, onCurrencyChange,
         onChange={readOnly ? undefined : (e) => onValueChange(e.target.value)}
         readOnly={readOnly}
         placeholder={placeholder}
-        className="w-full pl-4 pr-24 py-4 bg-gray-50 dark:bg-dark-primary border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:text-white text-lg font-semibold"
+        className="w-full pl-4 pr-24 py-4 bg-gray-50 dark:bg-black border border-gray-300 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-600 focus:border-transparent dark:text-white text-lg font-semibold"
       />
       <div className="absolute inset-y-0 right-0 flex items-center pr-3">
         <select value={currency} onChange={(e) => onCurrencyChange(e.target.value)} className="bg-transparent border-0 py-2 pl-2 pr-8 text-gray-700 dark:text-gray-300 focus:ring-0 focus:border-0">
@@ -120,7 +118,7 @@ const WalletInput = ({value, onChange}) => (
       value={value}
       onChange={(e) => onChange(e.target.value)}
       placeholder="0x742d35Cc6634C0532925a3b8..."
-      className="w-full px-4 py-3 bg-gray-50 dark:bg-dark-primary border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:text-white font-mono text-sm"
+      className="w-full px-4 py-3 bg-gray-50 dark:bg-black border border-gray-300 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-600 focus:border-transparent dark:text-white font-mono text-sm"
     />
   </div>
 );

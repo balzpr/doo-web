@@ -50,7 +50,7 @@ export const useP2PSwap = () => {
     setTimeout(() => {
       setProofs((p) => ({...p, burned: true}));
       setIsGenerating(false);
-      setTimeout(() => setActiveStep(4), 1000);
+      setTimeout(() => setActiveStep(4), 3000);
     }, 4500);
   };
 

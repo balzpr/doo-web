@@ -30,13 +30,13 @@ export const useOnboarding = () => {
   const handleInstallExtension = (browserId) => {
     setSelectedBrowser(browserId);
     setIsExtensionInstalled(true);
-    setTimeout(() => nextStep(), 1500);
+    // setTimeout(() => nextStep(), 1500);
   };
 
   const handleConnectWallet = (walletId) => {
     setSelectedWallet(walletId);
     setIsWalletConnected(true);
-    setTimeout(() => nextStep(), 1500);
+    // setTimeout(() => nextStep(), 1500);
   };
 
   const resetBrowserSelection = () => {

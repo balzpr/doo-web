@@ -32,7 +32,7 @@ const Verification = () => {
 
   if (isVerificationInProgress) {
     return (
-      <div className={`min-h-screen transition-colors duration-300 ${isDark ? "bg-dark-primary" : "bg-gray-50"}`}>
+      <div className={`min-h-screen transition-colors duration-300 ${isDark ? "bg-black" : "bg-gray-50"}`}>
         <VerificationHeader />
         <div className="max-w-md mx-auto py-4 px-4">
           <ProofResult
@@ -50,7 +50,7 @@ const Verification = () => {
   }
 
   return (
-    <div className={`min-h-screen transition-colors duration-300 ${isDark ? "bg-dark-primary" : "bg-gray-50"}`}>
+    <div className={`min-h-screen transition-colors duration-300 ${isDark ? "bg-black" : "bg-gray-50"}`}>
       <VerificationHeader />
 
       <div className="max-w-md mx-auto py-4 px-4">
@@ -68,7 +68,7 @@ const Verification = () => {
         )}
 
         {/* Mobile Info - Simplified */}
-        <div className="mt-6 bg-blue-50 dark:bg-blue-900/20 rounded-xl p-4 border border-blue-200 dark:border-blue-700">
+        <div className="mt-6 bg-blue-50 dark:bg-blue-900/20 rounded-xl p-4 border border-blue-200 dark:border-blue-800">
           <div className="flex items-center space-x-2 text-blue-700 dark:text-blue-300">
             <span className="text-lg">🔒</span>
             <div>
@@ -94,11 +94,11 @@ const VerificationTypesTab = ({onCardClick, selectedType}) => (
           onClick={() => onCardClick(type)}
           className={`w-full text-left p-4 rounded-xl border-2 transition-all duration-200 ${
             selectedType?.id === type.id
-              ? "border-blue-500 bg-blue-50 dark:bg-blue-900/20 scale-105"
-              : "border-gray-200 dark:border-gray-700 bg-white dark:bg-dark-secondary hover:border-gray-300 dark:hover:border-gray-600"
+              ? "border-blue-600 bg-blue-50 dark:bg-blue-900/20 scale-105"
+              : "border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 hover:border-gray-300 dark:hover:border-gray-600"
           }`}>
           <div className="flex items-center space-x-3">
-            <div className={`w-10 h-10 bg-gradient-to-r ${type.color} rounded-full flex items-center justify-center`}>
+            <div className={`w-10 h-10 ${type.color} rounded-full flex items-center justify-center`}>
               <span className="text-white text-lg">{type.icon}</span>
             </div>
             <div className="flex-1">
@@ -152,7 +152,7 @@ const VerificationInputTab = ({selectedType, userInput, onInputChange, onStartVe
       <div className="flex items-center space-x-3">
         <button
           onClick={onBack}
-          className="p-2 rounded-lg text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200">
+          className="p-2 rounded-lg text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200">
           ←
         </button>
         <div>
@@ -161,8 +161,8 @@ const VerificationInputTab = ({selectedType, userInput, onInputChange, onStartVe
         </div>
       </div>
 
-      {/* Input Section - HANYA SATU INPUT DI SINI */}
-      <div className="bg-white dark:bg-dark-secondary rounded-2xl p-5 shadow-lg border border-gray-200 dark:border-gray-700">
+      {/* Input Section */}
+      <div className="bg-white dark:bg-gray-900 rounded-2xl p-5 shadow-lg border border-gray-200 dark:border-gray-800">
         <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">{inputConfig.label}</label>
 
         <input
@@ -170,21 +170,19 @@ const VerificationInputTab = ({selectedType, userInput, onInputChange, onStartVe
           value={userInput}
           onChange={(e) => onInputChange(e.target.value)}
           placeholder={inputConfig.placeholder}
-          className="w-full px-4 py-3 bg-gray-50 dark:bg-dark-primary border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 dark:text-white text-base"
+          className="w-full px-4 py-3 bg-gray-50 dark:bg-black border border-gray-300 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-600 focus:border-transparent text-gray-900 dark:text-white text-base"
         />
 
         <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">{inputConfig.description}</p>
       </div>
 
       {/* Action Button - Sticky on Mobile */}
-      <div className="sticky bottom-4 bg-white dark:bg-dark-secondary rounded-xl p-4 shadow-2xl border border-gray-200 dark:border-gray-700">
+      <div className="sticky bottom-4 bg-white dark:bg-gray-900 rounded-xl p-4 shadow-2xl border border-gray-200 dark:border-gray-800">
         <button
           onClick={onStartVerification}
           disabled={!userInput}
           className={`w-full py-4 rounded-xl font-bold text-lg transition-all duration-200 ${
-            !userInput
-              ? "bg-gray-300 dark:bg-gray-700 text-gray-500 cursor-not-allowed"
-              : "bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg hover:shadow-xl"
+            !userInput ? "bg-gray-300 dark:bg-gray-700 text-gray-500 cursor-not-allowed" : "bg-blue-600 hover:bg-blue-700 text-white shadow-lg hover:shadow-xl"
           }`}>
           Generate Proof
         </button>
@@ -195,4 +193,3 @@ const VerificationInputTab = ({selectedType, userInput, onInputChange, onStartVe
 };
 
 export default Verification;
-  

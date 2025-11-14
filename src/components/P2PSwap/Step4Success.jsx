@@ -3,7 +3,7 @@ import React from "react";
 const Step4Success = ({swapData, onReset}) => {
   return (
     <div className="space-y-6">
-      <div className="bg-white dark:bg-dark-secondary rounded-2xl p-8 shadow-lg border border-gray-200 dark:border-gray-700 text-center">
+      <div className="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg border border-gray-200 dark:border-gray-800 text-center">
         <SuccessIcon />
         <SuccessTitle text="Swap Successful!" />
         <SuccessDescription text="Your trustless P2P swap has been completed securely." />
@@ -24,7 +24,7 @@ const SuccessTitle = ({text}) => <h2 className="text-2xl font-bold text-gray-900
 const SuccessDescription = ({text}) => <p className="text-gray-600 dark:text-gray-400 mb-4">{text}</p>;
 
 const SecurityBadge = () => (
-  <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-xl mb-6 border border-green-200 dark:border-green-700">
+  <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-xl mb-6 border border-green-200 dark:border-green-800">
     <div className="flex items-center justify-center space-x-2 text-green-700 dark:text-green-300">
       <span>✅</span>
       <span className="font-semibold">Secured by Zero-Knowledge Proofs</span>
@@ -40,16 +40,14 @@ const SwapSummary = ({swapData}) => (
 );
 
 const AmountDisplay = ({amount, currency}) => (
-  <div className="text-center p-3 bg-gray-50 dark:bg-dark-primary rounded-lg">
+  <div className="text-center p-3 bg-gray-50 dark:bg-black rounded-lg">
     <div className="text-lg font-bold text-gray-900 dark:text-white">{amount}</div>
     <div className="text-sm text-gray-600 dark:text-gray-400">{currency}</div>
   </div>
 );
 
 const ResetButton = ({onReset}) => (
-  <button
-    onClick={onReset}
-    className="w-full bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white py-4 rounded-xl font-bold text-lg transition-all duration-200 transform hover:scale-105">
+  <button onClick={onReset} className="w-full bg-green-600 hover:bg-green-700 text-white py-4 rounded-xl font-bold text-lg transition-all duration-200">
     Start New Swap
   </button>
 );
